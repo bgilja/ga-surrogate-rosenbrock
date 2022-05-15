@@ -13,11 +13,11 @@ from helpers.model import predict
 from helpers.models import Solution
 
 
-def monte_carlo_method(model, max_score, iterations) -> typing.List[typing.List]:
+def monte_carlo_method(model, iterations: int = settings.MONTE_CARLO_TEST_POPULATION_SIZE) -> typing.List[typing.List]:
     print(f"Monte Carlo testing with random generated networks on {iterations} iterations")
     
     solutions = [Solution.generate_random_solution() for _ in tqdm(range(iterations))] 
-    predicted_scores = predict(model, solutions, max_score)
+    predicted_scores = predict(model, solutions)
     
     results = []
     for index, solution in enumerate(solutions):
@@ -31,7 +31,7 @@ def main():
     _, scores = read_population_from_file()
     scores = [score[0] for score in scores]
 
-    data = monte_carlo_method(model, max(scores), settings.MONTE_CARLO_TEST_POPULATION_SIZE)
+    data = monte_carlo_method(model)
     differances = [round(x[1] / x[0], 2) for x in data]
     median, stdev = round(statistics.median(differances), 2), round(statistics.stdev(differances), 2)
     print(f"Difference between surrogate predicted score and actual score median is {median} with standard deviation {stdev}")

@@ -47,9 +47,8 @@ class Solution:
     
     def mutate(self) -> None:
         property_index = randrange(settings.DIMENSIONS)
-        value = Solution.generate_random_property()
-        self.properties[property_index] = round((self.properties[property_index] - value) / 2, settings.DECIMAL_ROUNDING)
-        # self.properties[property_index] = value
+        self.properties[property_index] += (5 * uniform(-1, 1))
+        self.properties[property_index] = normalize_property(self.properties[property_index])
         
         
 def compare_solutions(s1: Solution, s2: Solution):
@@ -57,3 +56,25 @@ def compare_solutions(s1: Solution, s2: Solution):
 
 def calculate_rosenbrock_fitness(solution: Solution) -> float:
     return rosenbrock(np.array(solution.properties))
+
+def normalize_property(value: float) -> float:
+    if value > settings.BOUNDS[1]:
+        return settings.BOUNDS[1]
+    if value < settings.BOUNDS[0]:
+        return settings.BOUNDS[0]
+    return round(value, settings.DECIMAL_ROUNDING)
+
+
+class OptimizationSettings:
+    
+    def __init__(
+        self,
+        initial_population_size,
+        population_size,
+        recombinations_per_iteration,
+        iterations_count
+    ) -> None:
+        self.initial_population_size = initial_population_size
+        self.population_size = population_size
+        self.recombinations_per_iteration = recombinations_per_iteration
+        self.iterations_count = iterations_count

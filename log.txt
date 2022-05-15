@@ -1,0 +1,172 @@
+2022-05-16 00:21:21.530408: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-05-16 00:21:21.530656: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-05-16 00:21:23.346625: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-05-16 00:21:23.346831: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-05-16 00:21:23.349471: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-ROF5BIA
+2022-05-16 00:21:23.349659: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-ROF5BIA
+2022-05-16 00:21:23.349965: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Random solution rosenbrock score: 43108.778325
+Best solution rosenbrock score: 0.0
+Random solution predicted score: 108382.84375
+Best solution predicted score: 11217.0732421875
+Cycle #1: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.24it/s]
+Cycle #1: Best score [3053.797381] [predicted - 0.0]
+#1: Continue training on existing model
+Continued training loss: 23563304.0
+Random solution predicted score: 102009.9765625
+Best solution predicted score: 7488.8271484375
+Best score found: 3053.797381
+Cycle #2: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:06<00:00, 15.12it/s]
+Cycle #2: Best score [4478.309461] [predicted - 0.0]
+#2: Continue training on existing model
+Continued training loss: 16573232.0
+Random solution predicted score: 105720.65625
+Best solution predicted score: 7337.9248046875
+Best score found: 3053.797381
+Cycle #3: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:06<00:00, 15.10it/s]
+Cycle #3: Best score [1863.899661] [predicted - 0.0]
+#3: Continue training on existing model
+Continued training loss: 2594199.0
+Random solution predicted score: 106763.0546875
+Best solution predicted score: 6278.16748046875
+Best score found: 1863.899661
+Cycle #4: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.17it/s]
+Cycle #4: Best score [10696.364643] [predicted - 0.0]
+#4: Continue training on existing model
+Continued training loss: 2363547.5
+Random solution predicted score: 107196.640625
+Best solution predicted score: 6053.474609375
+Best score found: 1863.899661
+Cycle #5: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.17it/s]
+Cycle #5: Best score [1168.370439] [predicted - 0.0]
+#5: Continue training on existing model
+Continued training loss: 1839214.375
+Random solution predicted score: 106878.1484375
+Best solution predicted score: 5852.48095703125
+Best score found: 1168.370439
+Cycle #6: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:07<00:00, 14.91it/s]
+Cycle #6: Best score [2911.116912] [predicted - 0.0]
+#6: Continue training on existing model
+Continued training loss: 1578503.5
+Random solution predicted score: 107072.875
+Best solution predicted score: 5760.32958984375
+Best score found: 1168.370439
+Cycle #7: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.20it/s]
+Cycle #7: Best score [12426.273816] [predicted - 0.0]
+#7: Continue training on existing model
+Continued training loss: 2945045.5
+Random solution predicted score: 107196.1640625
+Best solution predicted score: 5680.16455078125
+Best score found: 1168.370439
+Cycle #8: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.27it/s]
+Cycle #8: Best score [6506.80904] [predicted - 0.0]
+#8: Continue training on existing model
+Continued training loss: 3309763.75
+Random solution predicted score: 107306.015625
+Best solution predicted score: 5655.80908203125
+Best score found: 1168.370439
+Cycle #9: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:07<00:00, 14.90it/s]
+Cycle #9: Best score [8222.01401] [predicted - 0.0]
+#9: Continue training on existing model
+Continued training loss: 3918731.25
+Random solution predicted score: 107371.828125
+Best solution predicted score: 5634.06103515625
+Best score found: 1168.370439
+Cycle #10: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:07<00:00, 14.92it/s]
+Cycle #10: Best score [9999.44236] [predicted - 0.0]
+#10: Continue training on existing model
+Continued training loss: 603872.5625
+Random solution predicted score: 106482.8125
+Best solution predicted score: 10561.1953125
+Best score found: 1168.370439
+Cycle #11: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:08<00:00, 14.67it/s]
+Cycle #11: Best score [775.547681] [predicted - 999.597900390625]
+#11: Continue training on existing model
+Continued training loss: 23652650.0
+Random solution predicted score: 106122.8671875
+Best solution predicted score: 11017.0126953125
+Best score found: 775.547681
+Cycle #12: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.22it/s]
+Cycle #12: Best score [1968.072681] [predicted - 770.4058837890625]
+#12: Continue training on existing model
+Continued training loss: 853233.0
+Random solution predicted score: 105104.8671875
+Best solution predicted score: 8979.123046875
+Best score found: 775.547681
+Cycle #13: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.16it/s]
+Cycle #13: Best score [5977.479525] [predicted - 647.8054809570312]
+#13: Continue training on existing model
+Continued training loss: 4046924.25
+Random solution predicted score: 103036.7265625
+Best solution predicted score: 9175.7236328125
+Best score found: 775.547681
+Cycle #14: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:06<00:00, 15.05it/s]
+Cycle #14: Best score [2328.073043] [predicted - 751.625]
+#14: Continue training on existing model
+Continued training loss: 4316187.0
+Random solution predicted score: 104691.296875
+Best solution predicted score: 9312.6123046875
+Best score found: 775.547681
+Cycle #15: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:07<00:00, 14.89it/s]
+Cycle #15: Best score [1778.380817] [predicted - 1135.6397705078125]
+#15: Continue training on existing model
+Continued training loss: 6641190.0
+Random solution predicted score: 104769.9140625
+Best solution predicted score: 8594.712890625
+Best score found: 775.547681
+Cycle #16: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:06<00:00, 14.99it/s]
+Cycle #16: Best score [784.052365] [predicted - 795.1148681640625]
+#16: Continue training on existing model
+Continued training loss: 7608166.5
+Random solution predicted score: 104478.875
+Best solution predicted score: 8376.9375
+Best score found: 775.547681
+Cycle #17: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:09<00:00, 14.46it/s]
+Cycle #17: Best score [552.224802] [predicted - 1190.1048583984375]
+#17: Continue training on existing model
+Continued training loss: 28565442.0
+Random solution predicted score: 106709.359375
+Best solution predicted score: 7603.70849609375
+Best score found: 552.224802
+Cycle #18: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:05<00:00, 15.27it/s]
+Cycle #18: Best score [2281.68463] [predicted - 634.8984375]
+#18: Continue training on existing model
+Continued training loss: 32375.046875
+Random solution predicted score: 105615.8828125
+Best solution predicted score: 7158.87646484375
+Best score found: 552.224802
+Cycle #19: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:06<00:00, 14.99it/s]
+Cycle #19: Best score [743.465738] [predicted - 468.3315124511719]
+#19: Continue training on existing model
+Continued training loss: 41617.26171875
+Random solution predicted score: 105559.875
+Best solution predicted score: 7148.02392578125
+Best score found: 552.224802
+Cycle #20: Generating optimized solutions
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 1000/1000 [01:10<00:00, 14.23it/s]
+Cycle #20: Best score [674.770009] [predicted - 926.6676025390625]
+#20: Continue training on existing model
+Continued training loss: 58167.328125
+Random solution predicted score: 105402.7265625
+Best solution predicted score: 7152.87255859375
+Best score found: 552.224802
