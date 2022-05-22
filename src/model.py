@@ -1,49 +1,28 @@
-import numpy as np
-
-from tensorflow import keras
+from matplotlib import pyplot
 
 from config import settings
 from helpers.file import read_population_from_file
+from helpers.model import construct_model, train_model
 
 
-def train_model():
+def train():
     location_data, scores = read_population_from_file()
-    scores = [score[0] for score in scores]
-
-    data_train_in, data_train_out = np.array(location_data), np.array(scores)
-
-    inputs = keras.Input(shape=(settings.DIMENSIONS,), name="input")
-    x = keras.layers.Dense(32, activation="relu", name="dense_1")(inputs)
-    x = keras.layers.Dense(64, activation="relu", name="dense_2")(x)
-    x = keras.layers.Dense(128, activation="relu", name="dense_3")(x)
-    x = keras.layers.Dense(256, activation="relu", name="dense_4")(x)
-    x = keras.layers.Dense(128, activation="relu", name="dense_5")(x)
-    x = keras.layers.Dense(64, activation="relu", name="dense_6")(x)
-    x = keras.layers.Dense(32, activation="relu", name="dense_7")(x)
-    outputs = keras.layers.Dense(1, activation="relu", name="output")(x)
-
-    model = keras.Model(inputs=inputs, outputs=outputs)
     
-    model.compile(
-        optimizer=settings.TRAINING_OPTIMIZER,
-        loss=settings.TRAINING_LOSS,
-        metrics=settings.TRAINING_METRICS
-    )
-
-    model.fit(
-        data_train_in,
-        data_train_out,
-        batch_size=settings.TRAINING_BATCH_SIZE,
-        shuffle=True,
-        epochs=settings.TRAINING_EPOCHS
-    )
+    model = construct_model()
+    model, history = train_model(model, location_data, scores, False)
+    
+    pyplot.plot(history.history['loss'], label='train')
+    pyplot.plot(history.history['val_loss'], label='test')
+    pyplot.legend()
+    pyplot.show()
 
     model.save(settings.MODEL_PATH, save_format=settings.MODEL_SAVE_FORMAT)
+    
     return model
 
 
 def main():
-    train_model()
+    train()
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 import config.settings as settings
 
-from helpers.file import read_model, read_population_from_file
+from helpers.file import read_model
 from helpers.functions import rosenbrock
 from helpers.model import predict
 from helpers.models import Solution
@@ -27,12 +27,9 @@ def monte_carlo_method(model, iterations: int = settings.MONTE_CARLO_TEST_POPULA
 
 def main():
     model = read_model()
-    
-    _, scores = read_population_from_file()
-    scores = [score[0] for score in scores]
 
     data = monte_carlo_method(model)
-    differances = [round(x[1] / x[0], 2) for x in data]
+    differances = [round((x[1] / x[0]) ** 1, 2) for x in data]
     median, stdev = round(statistics.median(differances), 2), round(statistics.stdev(differances), 2)
     print(f"Difference between surrogate predicted score and actual score median is {median} with standard deviation {stdev}")
 
