@@ -1,44 +1,44 @@
-import copy
 import functools
 import typing
 
-from random import choice
-from tqdm import tqdm
-
 import config.settings as settings
+from helpers.algorithms import GeneticGeneration
 
 from helpers.file import save_population_to_file
-from helpers.models import Solution, calculate_rosenbrock_fitness, compare_solutions
+from helpers.functions import RosenbrockFitnessFunction
+from helpers.models.optimization_settings import OptimizationSettings
+from helpers.models.solution import Solution
+from helpers.visualize import visualize_data_properties, visualize_data_scores
     
 
-def create_initial_population() -> typing.List[Solution]:
-    population = [Solution.generate_random_solution(calculate_rosenbrock_fitness) for _ in range(settings.INITIAL_POPULATION_SIZE)]
-    total_population = copy.deepcopy(population)
-    
-    for _ in tqdm(range(settings.ITERATIONS)):
-        new_solutions = []
-        for _ in range(settings.POPULATION_SIZE_PER_ITERATION):
-            parents = [choice(population), choice(population)]
-            new_solution: Solution = Solution.recombination(*parents)
-            new_solution.mutate()
-            new_solution.calculate_value(calculate_rosenbrock_fitness)
-            new_solutions.append(new_solution)
-        
-        # new_solutions.sort(key=functools.cmp_to_key(compare_solutions))
-        # new_solutions = [new_solutions[0]]
-        
-        population += new_solutions
-        total_population += new_solutions
-        
-        population.sort(key=functools.cmp_to_key(compare_solutions))
-        population = population[:settings.INITIAL_POPULATION_SIZE]
-        
-    total_population.sort(key=functools.cmp_to_key(compare_solutions))
-    return total_population[-settings.POPULATION_SIZE:]
+def create_initial_population_random() -> typing.List[Solution]:
+    population = [Solution.generate_random_solution(RosenbrockFitnessFunction) for _ in range(settings.POPULATION_SIZE)]
+    population.sort(key=functools.cmp_to_key(Solution.compare_solutions))
+    return population
+
+
+def create_initial_population_ga() -> typing.List[Solution]:
+    ga_settings = OptimizationSettings(
+        settings.CREATE_INITIAL_POPULATION_SIZE,
+        settings.POPULATION_SIZE,
+        settings.CREATE_INITIAL_POPULATION_RECOMBINATIONS_PER_ITERATION,
+        settings.CREATE_INITIAL_ITERATIONS,
+    )
+    ga_generation = GeneticGeneration(ga_settings)
+    population = ga_generation.optimization()
+    population.sort(key=functools.cmp_to_key(Solution.compare_solutions))
+    return population
         
         
 def main():
-    population = create_initial_population()
+    if settings.GENERATE_INITIAL_POPULATION_RANDOM:
+        population = create_initial_population_random()
+    else:
+        population = create_initial_population_ga()
+    
+    visualize_data_properties(population)
+    visualize_data_scores(population)
+    
     save_population_to_file(population)
         
         

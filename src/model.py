@@ -1,23 +1,23 @@
-from matplotlib import pyplot
-
 from config import settings
 from helpers.file import read_population_from_file
-from helpers.model import construct_model, train_model
+from helpers.model import construct_model, train_model, transform_solutions
+from helpers.visualize import visualize_training_metric
 
 
 def train():
-    location_data, scores = read_population_from_file()
+    solutions = list(read_population_from_file())
+    training_data = transform_solutions(solutions)
     
-    model = construct_model()
-    model, history = train_model(model, location_data, scores, False)
+    model = construct_model(True)
+    model, history = train_model(model, training_data, False)
     
-    pyplot.plot(history.history['loss'], label='train')
-    pyplot.plot(history.history['val_loss'], label='test')
-    pyplot.legend()
-    pyplot.show()
-
+    visualize_training_metric(history, "loss", ("Broj epohe", "Vrijednost funkcije gubitka"))
+    # visualize_training_metric(history, "mean_absolute_error")
+    # visualize_training_metric(history, "mean_absolute_percentage_error")
+    # visualize_training_metric(history, "mean_squared_error")
+    
+    print(min(history.history["loss"]))
     model.save(settings.MODEL_PATH, save_format=settings.MODEL_SAVE_FORMAT)
-    
     return model
 
 
