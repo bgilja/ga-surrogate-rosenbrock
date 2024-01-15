@@ -1,0 +1,1085 @@
+// TRAIN
+(env) D:\Development\Git\ga-surrogate-rosenbrock\src>model.py
+2022-06-26 22:49:01.627434: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-06-26 22:49:01.627648: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-06-26 22:49:03.455736: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-06-26 22:49:03.455928: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-26 22:49:03.458754: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-ROF5BIA
+2022-06-26 22:49:03.458930: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-ROF5BIA
+2022-06-26 22:49:03.459321: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ dense (Dense)               (None, 256)               7936
+
+ dense_1 (Dense)             (None, 256)               65792
+
+ dropout (Dropout)           (None, 256)               0
+
+ dense_2 (Dense)             (None, 256)               65792
+
+ dropout_1 (Dropout)         (None, 256)               0
+
+ dense_3 (Dense)             (None, 256)               65792
+
+ dropout_2 (Dropout)         (None, 256)               0
+
+ dense_4 (Dense)             (None, 1)                 257
+
+=================================================================
+Total params: 205,569
+Trainable params: 205,569
+Non-trainable params: 0
+_________________________________________________________________
+None
+Decay steps: 4
+Decay rate: 0.9982980113898524
+Restoring model weights from the end of the best epoch: 73.
+Epoch 173: early stopping
+
+// TEST
+(env) D:\Development\Git\ga-surrogate-rosenbrock\src>tests.py
+2022-06-26 22:50:15.398669: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-06-26 22:50:15.398941: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-06-26 22:50:17.183847: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-06-26 22:50:17.184063: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-26 22:50:17.186880: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-ROF5BIA
+2022-06-26 22:50:17.187045: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-ROF5BIA
+2022-06-26 22:50:17.187398: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Monte Carlo testing with random generated networks on 10000 iterations
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:00<00:00, 32565.99it/s] 
+Difference between surrogate predicted score and actual score median is 0.77 with standard deviation 0.27
+
+// OPTIMIZATION
+(env) D:\Development\Git\ga-surrogate-rosenbrock\src>optimization.py
+2022-06-26 22:39:35.361996: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-06-26 22:51:00.040175: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-06-26 22:51:02.378877: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-06-26 22:51:02.379093: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-26 22:51:02.381656: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-ROF5BIA
+2022-06-26 22:51:02.381824: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-ROF5BIA
+2022-06-26 22:51:02.382235: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Random solution rosenbrock score: 584381457.00536
+Best solution rosenbrock score: 0.0
+Random solution predicted score: 301824064.0
+Best solution predicted score: 29581318.0
+Cycle 1 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.73it/s]
+Cycle 1 / 100: Best score 210822460.000583 [predicted - 4271135.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 285762112.0
+Best solution predicted score: 4451313.0
+Best initial score: 182010936.962755
+Best score found: 210822460.000583
+Best score optimization percentage: 1.1582955591494137
+Cycle 2 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.57it/s]
+Cycle 2 / 100: Best score 192041759.507447 [predicted - 2943574.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 297243104.0
+Best solution predicted score: 3038501.5
+Best initial score: 182010936.962755
+Best score found: 192041759.507447
+Best score optimization percentage: 1.055111097783891
+Cycle 3 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.61it/s]
+Cycle 3 / 100: Best score 192079658.20025 [predicted - 2486126.75]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 298527872.0
+Best solution predicted score: 9806201.0
+Best initial score: 182010936.962755
+Best score found: 192041759.507447
+Best score optimization percentage: 1.055111097783891
+Cycle 4 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.80it/s]
+Cycle 4 / 100: Best score 113158251.726403 [predicted - 5353805.5]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 270490016.0
+Best solution predicted score: 10584597.0
+Best initial score: 182010936.962755
+Best score found: 113158251.726403
+Best score optimization percentage: 0.6217112752381393
+Cycle 5 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.62it/s]
+Cycle 5 / 100: Best score 100153082.157847 [predicted - 7650824.0]
+Restoring model weights from the end of the best epoch: 23.
+Epoch 33: early stopping
+Random solution predicted score: 317602624.0
+Best solution predicted score: 123966944.0
+Best initial score: 182010936.962755
+Best score found: 100153082.157847
+Best score optimization percentage: 0.550258593407172
+Cycle 6 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.70it/s]
+Cycle 6 / 100: Best score 116037758.445976 [predicted - 26318262.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 318730880.0
+Best solution predicted score: 26616134.0
+Best initial score: 182010936.962755
+Best score found: 100153082.157847
+Best score optimization percentage: 0.550258593407172
+Cycle 7 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.58it/s]
+Cycle 7 / 100: Best score 64661266.878587 [predicted - 20566642.0]
+Restoring model weights from the end of the best epoch: 9.
+Epoch 19: early stopping
+Random solution predicted score: 316848608.0
+Best solution predicted score: 56532976.0
+Best initial score: 182010936.962755
+Best score found: 64661266.878587
+Best score optimization percentage: 0.3552603374148811
+Cycle 8 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.30it/s]
+Cycle 8 / 100: Best score 3865462.643635 [predicted - 26830370.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 311374976.0
+Best solution predicted score: 27831590.0
+Best initial score: 182010936.962755
+Best score found: 3865462.643635
+Best score optimization percentage: 0.021237529503108882
+Cycle 9 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.39it/s]
+Cycle 9 / 100: Best score 326706.685678 [predicted - 16297720.0]
+Restoring model weights from the end of the best epoch: 16.
+Epoch 26: early stopping
+Random solution predicted score: 320002944.0
+Best solution predicted score: 16049850.0
+Best initial score: 182010936.962755
+Best score found: 326706.685678
+Best score optimization percentage: 0.0017949838132246645
+Cycle 10 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.12it/s]
+Cycle 10 / 100: Best score 43272.73816 [predicted - 9651400.0]
+Restoring model weights from the end of the best epoch: 11.
+Epoch 21: early stopping
+Random solution predicted score: 355392928.0
+Best solution predicted score: 9626023.0
+Best initial score: 182010936.962755
+Best score found: 43272.73816
+Best score optimization percentage: 0.0002377480105432067
+Cycle 11 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.77it/s]
+Cycle 11 / 100: Best score 15942.208448 [predicted - 7015085.5]
+Restoring model weights from the end of the best epoch: 4.
+Epoch 14: early stopping
+Random solution predicted score: 327916864.0
+Best solution predicted score: 6687446.0
+Best initial score: 182010936.962755
+Best score found: 15942.208448
+Best score optimization percentage: 8.75892883912919e-05
+Cycle 12 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.57it/s]
+Cycle 12 / 100: Best score 10397.162824 [predicted - 6232021.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 329562080.0
+Best solution predicted score: 6299365.5
+Best initial score: 182010936.962755
+Best score found: 10397.162824
+Best score optimization percentage: 5.7123835509552794e-05
+Cycle 13 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.64it/s]
+Cycle 13 / 100: Best score 9074.52317 [predicted - 6143773.5]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 323348736.0
+Best solution predicted score: 5801061.0
+Best initial score: 182010936.962755
+Best score found: 9074.52317
+Best score optimization percentage: 4.985702134952981e-05
+Cycle 14 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.76it/s]
+Cycle 14 / 100: Best score 8790.573326 [predicted - 5705399.5]
+Restoring model weights from the end of the best epoch: 5.
+Epoch 15: early stopping
+Random solution predicted score: 335270336.0
+Best solution predicted score: 5316372.5
+Best initial score: 182010936.962755
+Best score found: 8790.573326
+Best score optimization percentage: 4.8296951121123124e-05
+Cycle 15 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.15it/s]
+Cycle 15 / 100: Best score 8359.062362 [predicted - 5228575.5]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 330914944.0
+Best solution predicted score: 5455455.5
+Best initial score: 182010936.962755
+Best score found: 8359.062362
+Best score optimization percentage: 4.592615422726229e-05
+Cycle 16 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.37it/s]
+Cycle 16 / 100: Best score 7621.429872 [predicted - 5366482.5]
+Restoring model weights from the end of the best epoch: 6.
+Epoch 16: early stopping
+Random solution predicted score: 340238752.0
+Best solution predicted score: 5284778.5
+Best initial score: 182010936.962755
+Best score found: 7621.429872
+Best score optimization percentage: 4.187347199668324e-05
+Cycle 17 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.69it/s]
+Cycle 17 / 100: Best score 6730.917844 [predicted - 5206380.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 345338176.0
+Best solution predicted score: 5114070.5
+Best initial score: 182010936.962755
+Best score found: 6730.917844
+Best score optimization percentage: 3.6980842779669615e-05
+Cycle 18 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.72it/s]
+Cycle 18 / 100: Best score 6475.224918 [predicted - 5084612.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 335517504.0
+Best solution predicted score: 4978522.5
+Best initial score: 182010936.962755
+Best score found: 6475.224918
+Best score optimization percentage: 3.557602101309455e-05
+Cycle 19 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.64it/s]
+Cycle 19 / 100: Best score 6380.244105 [predicted - 4960283.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 332533696.0
+Best solution predicted score: 4881727.5
+Best initial score: 182010936.962755
+Best score found: 6380.244105
+Best score optimization percentage: 3.5054179773304465e-05
+Cycle 20 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.67it/s]
+Cycle 20 / 100: Best score 6324.065334 [predicted - 4869634.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 330220224.0
+Best solution predicted score: 4749650.5
+Best initial score: 182010936.962755
+Best score found: 6324.065334
+Best score optimization percentage: 3.474552375549881e-05
+Cycle 21 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.63it/s]
+Cycle 21 / 100: Best score 6347.005564 [predicted - 4738338.5]
+Restoring model weights from the end of the best epoch: 9.
+Epoch 19: early stopping
+Random solution predicted score: 334826560.0
+Best solution predicted score: 4225481.0
+Best initial score: 182010936.962755
+Best score found: 6324.065334
+Best score optimization percentage: 3.474552375549881e-05
+Cycle 22 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.60it/s]
+Cycle 22 / 100: Best score 6243.208595 [predicted - 4201695.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340105984.0
+Best solution predicted score: 4111836.5
+Best initial score: 182010936.962755
+Best score found: 6243.208595
+Best score optimization percentage: 3.43012826546657e-05
+Cycle 23 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.76it/s]
+Cycle 23 / 100: Best score 6039.564166 [predicted - 4092092.25]
+Restoring model weights from the end of the best epoch: 6.
+Epoch 16: early stopping
+Random solution predicted score: 346572288.0
+Best solution predicted score: 3498015.0
+Best initial score: 182010936.962755
+Best score found: 6039.564166
+Best score optimization percentage: 3.318242445637143e-05
+Cycle 24 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.69it/s]
+Cycle 24 / 100: Best score 5790.922481 [predicted - 3474825.0]
+Restoring model weights from the end of the best epoch: 7.
+Epoch 17: early stopping
+Random solution predicted score: 358493216.0
+Best solution predicted score: 3114267.5
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 25 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.13it/s]
+Cycle 25 / 100: Best score 5885.841277 [predicted - 3075497.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 353287968.0
+Best solution predicted score: 2956132.0
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 26 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.74it/s]
+Cycle 26 / 100: Best score 5851.019691 [predicted - 2940519.0]
+Restoring model weights from the end of the best epoch: 9.
+Epoch 19: early stopping
+Random solution predicted score: 354318336.0
+Best solution predicted score: 2268188.0
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 27 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.61it/s]
+Cycle 27 / 100: Best score 6027.29234 [predicted - 2178678.0]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 353540736.0
+Best solution predicted score: 2247961.25
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 28 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.45it/s]
+Cycle 28 / 100: Best score 6177.624067 [predicted - 2224847.0]
+Restoring model weights from the end of the best epoch: 11.
+Epoch 21: early stopping
+Random solution predicted score: 351333312.0
+Best solution predicted score: 1721769.125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 29 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.79it/s]
+Cycle 29 / 100: Best score 5936.889177 [predicted - 1669893.25]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 347032000.0
+Best solution predicted score: 1618345.5
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 30 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.55it/s]
+Cycle 30 / 100: Best score 5927.715658 [predicted - 1590629.375]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 347929600.0
+Best solution predicted score: 1498659.25
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 31 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.69it/s]
+Cycle 31 / 100: Best score 6005.152289 [predicted - 1480358.25]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 351034048.0
+Best solution predicted score: 1468333.5
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 32 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.63it/s]
+Cycle 32 / 100: Best score 6012.945765 [predicted - 1457198.0]
+Restoring model weights from the end of the best epoch: 15.
+Epoch 25: early stopping
+Random solution predicted score: 330877504.0
+Best solution predicted score: 915388.5
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 33 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.54it/s]
+Cycle 33 / 100: Best score 6063.422917 [predicted - 898167.6875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 331150464.0
+Best solution predicted score: 868683.875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 34 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.85it/s]
+Cycle 34 / 100: Best score 6079.427935 [predicted - 857036.3125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 332780864.0
+Best solution predicted score: 835519.375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 35 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.82it/s]
+Cycle 35 / 100: Best score 6063.822006 [predicted - 827807.125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 331875648.0
+Best solution predicted score: 803528.5
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 36 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.51it/s]
+Cycle 36 / 100: Best score 5951.500269 [predicted - 791661.6875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 331031360.0
+Best solution predicted score: 787401.875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 37 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.55it/s]
+Cycle 37 / 100: Best score 5945.666882 [predicted - 784368.8125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 329099008.0
+Best solution predicted score: 749533.6875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 38 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.64it/s]
+Cycle 38 / 100: Best score 5950.855151 [predicted - 747970.5]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 328705216.0
+Best solution predicted score: 747826.0
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 39 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.16it/s]
+Cycle 39 / 100: Best score 5952.682203 [predicted - 747544.5625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 326351296.0
+Best solution predicted score: 703550.125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 40 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.42it/s]
+Cycle 40 / 100: Best score 5968.212418 [predicted - 699234.5]
+Restoring model weights from the end of the best epoch: 10.
+Epoch 20: early stopping
+Random solution predicted score: 338335584.0
+Best solution predicted score: 421709.8125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 41 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.81it/s]
+Cycle 41 / 100: Best score 6066.222565 [predicted - 396481.78125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339656960.0
+Best solution predicted score: 382073.9375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 42 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.46it/s]
+Cycle 42 / 100: Best score 6024.051386 [predicted - 371714.3125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340318592.0
+Best solution predicted score: 361614.9375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 43 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.58it/s]
+Cycle 43 / 100: Best score 6057.794034 [predicted - 357341.6875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340124800.0
+Best solution predicted score: 345332.46875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 44 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.61it/s]
+Cycle 44 / 100: Best score 6067.437959 [predicted - 343091.9375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 338810720.0
+Best solution predicted score: 329662.0
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 45 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.58it/s]
+Cycle 45 / 100: Best score 6065.040961 [predicted - 328603.3125]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 342713600.0
+Best solution predicted score: 302435.375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 46 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.85it/s]
+Cycle 46 / 100: Best score 5999.441861 [predicted - 297457.8125]
+Restoring model weights from the end of the best epoch: 27.
+Epoch 37: early stopping
+Random solution predicted score: 343223200.0
+Best solution predicted score: 150991.734375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 47 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.80it/s]
+Cycle 47 / 100: Best score 6130.566707 [predicted - 133761.609375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 343025984.0
+Best solution predicted score: 130871.0546875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 48 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.90it/s]
+Cycle 48 / 100: Best score 6171.261503 [predicted - 126554.3671875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 343575008.0
+Best solution predicted score: 124847.96875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 49 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.64it/s]
+Cycle 49 / 100: Best score 6269.701613 [predicted - 122618.4921875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 343632704.0
+Best solution predicted score: 121989.1875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 50 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.61it/s]
+Cycle 50 / 100: Best score 6237.248235 [predicted - 118855.09375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 343306464.0
+Best solution predicted score: 118167.3515625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 51 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.81it/s]
+Cycle 51 / 100: Best score 6227.586358 [predicted - 117069.2734375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 344275776.0
+Best solution predicted score: 115756.2265625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 52 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.86it/s]
+Cycle 52 / 100: Best score 6240.264971 [predicted - 114928.0859375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 343205536.0
+Best solution predicted score: 114417.7578125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 53 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.24it/s]
+Cycle 53 / 100: Best score 6272.17219 [predicted - 113864.8046875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341869056.0
+Best solution predicted score: 113815.53125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 54 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.16it/s]
+Cycle 54 / 100: Best score 6243.542728 [predicted - 112851.0625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341285632.0
+Best solution predicted score: 112496.5546875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 55 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.78it/s]
+Cycle 55 / 100: Best score 6246.316813 [predicted - 112369.3203125]
+Restoring model weights from the end of the best epoch: 7.
+Epoch 17: early stopping
+Random solution predicted score: 342879616.0
+Best solution predicted score: 111944.53125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 56 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.63it/s]
+Cycle 56 / 100: Best score 6305.082623 [predicted - 110341.375]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 343856832.0
+Best solution predicted score: 109920.109375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 57 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.83it/s]
+Cycle 57 / 100: Best score 6305.082623 [predicted - 109920.109375]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 344984320.0
+Best solution predicted score: 109666.046875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 58 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.80it/s]
+Cycle 58 / 100: Best score 6292.032072 [predicted - 109666.0390625]
+Restoring model weights from the end of the best epoch: 13.
+Epoch 23: early stopping
+Random solution predicted score: 341765856.0
+Best solution predicted score: 107126.34375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 59 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.77it/s]
+Cycle 59 / 100: Best score 6294.780083 [predicted - 105537.4453125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340751264.0
+Best solution predicted score: 105245.140625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 60 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.60it/s]
+Cycle 60 / 100: Best score 6298.951559 [predicted - 105245.140625]
+Restoring model weights from the end of the best epoch: 5.
+Epoch 15: early stopping
+Random solution predicted score: 340221248.0
+Best solution predicted score: 104223.2265625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 61 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.36it/s]
+Cycle 61 / 100: Best score 6298.951559 [predicted - 104223.2265625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341084864.0
+Best solution predicted score: 104046.5546875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 62 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.87it/s]
+Cycle 62 / 100: Best score 6298.951559 [predicted - 104046.5546875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340992512.0
+Best solution predicted score: 103692.125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 63 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.78it/s]
+Cycle 63 / 100: Best score 6298.846236 [predicted - 103692.1171875]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 340477760.0
+Best solution predicted score: 103285.8984375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 64 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.64it/s]
+Cycle 64 / 100: Best score 6298.846236 [predicted - 103285.890625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340400128.0
+Best solution predicted score: 103025.15625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 65 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.69it/s]
+Cycle 65 / 100: Best score 6298.846236 [predicted - 103025.15625]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 341006144.0
+Best solution predicted score: 102389.90625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 66 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.65it/s]
+Cycle 66 / 100: Best score 6293.398356 [predicted - 102376.5859375]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 341874208.0
+Best solution predicted score: 102064.296875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 67 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.90it/s]
+Cycle 67 / 100: Best score 6293.398356 [predicted - 102064.296875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 342174176.0
+Best solution predicted score: 101850.5859375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 68 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.79it/s]
+Cycle 68 / 100: Best score 6293.398356 [predicted - 101850.578125]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 342147968.0
+Best solution predicted score: 101340.0625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 69 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.78it/s]
+Cycle 69 / 100: Best score 6291.496858 [predicted - 101340.046875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341839232.0
+Best solution predicted score: 101089.6875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 70 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.59it/s]
+Cycle 70 / 100: Best score 6221.377486 [predicted - 101089.6875]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 341731712.0
+Best solution predicted score: 100778.7109375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 71 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.91it/s]
+Cycle 71 / 100: Best score 6220.960033 [predicted - 100778.7109375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 342383488.0
+Best solution predicted score: 100589.984375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 72 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.76it/s]
+Cycle 72 / 100: Best score 6234.171106 [predicted - 100589.984375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341968960.0
+Best solution predicted score: 100292.4765625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 73 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 12.96it/s]
+Cycle 73 / 100: Best score 6234.171106 [predicted - 100292.4765625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341595520.0
+Best solution predicted score: 100041.6015625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 74 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 12.71it/s]
+Cycle 74 / 100: Best score 6234.171106 [predicted - 100041.6015625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 341263680.0
+Best solution predicted score: 99834.203125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 75 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.10it/s]
+Cycle 75 / 100: Best score 6271.571159 [predicted - 99834.1953125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340923328.0
+Best solution predicted score: 99656.1015625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 76 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.46it/s]
+Cycle 76 / 100: Best score 6271.571159 [predicted - 99656.1015625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340550304.0
+Best solution predicted score: 99536.59375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 77 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 12.66it/s]
+Cycle 77 / 100: Best score 6271.571159 [predicted - 99536.59375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340062208.0
+Best solution predicted score: 99339.3984375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 78 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.44it/s]
+Cycle 78 / 100: Best score 6271.571159 [predicted - 99339.3984375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339847296.0
+Best solution predicted score: 99166.3828125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 79 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.88it/s]
+Cycle 79 / 100: Best score 6271.571159 [predicted - 99166.3828125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339550368.0
+Best solution predicted score: 99010.9765625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 80 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.53it/s]
+Cycle 80 / 100: Best score 6281.324126 [predicted - 99010.9765625]
+Restoring model weights from the end of the best epoch: 5.
+Epoch 15: early stopping
+Random solution predicted score: 340014208.0
+Best solution predicted score: 98559.4296875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 81 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.12it/s]
+Cycle 81 / 100: Best score 6281.324126 [predicted - 98559.421875]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 340617344.0
+Best solution predicted score: 98194.546875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 82 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.40it/s]
+Cycle 82 / 100: Best score 6281.324126 [predicted - 98194.546875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340594560.0
+Best solution predicted score: 98110.046875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 83 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.70it/s]
+Cycle 83 / 100: Best score 6281.324126 [predicted - 98110.046875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340694240.0
+Best solution predicted score: 98000.703125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 84 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.76it/s]
+Cycle 84 / 100: Best score 6281.324126 [predicted - 98000.703125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340552576.0
+Best solution predicted score: 97901.828125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 85 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.17it/s]
+Cycle 85 / 100: Best score 6281.324126 [predicted - 97901.828125]
+Restoring model weights from the end of the best epoch: 15.
+Epoch 25: early stopping
+Random solution predicted score: 340129440.0
+Best solution predicted score: 96790.046875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 86 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.65it/s]
+Cycle 86 / 100: Best score 6281.324126 [predicted - 96790.046875]
+Restoring model weights from the end of the best epoch: 7.
+Epoch 17: early stopping
+Random solution predicted score: 339951424.0
+Best solution predicted score: 96174.7265625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 87 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.01it/s]
+Cycle 87 / 100: Best score 6281.022754 [predicted - 96174.71875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 340068800.0
+Best solution predicted score: 96116.25
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 88 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.58it/s]
+Cycle 88 / 100: Best score 6286.533999 [predicted - 96116.25]
+Restoring model weights from the end of the best epoch: 5.
+Epoch 15: early stopping
+Random solution predicted score: 339572512.0
+Best solution predicted score: 95791.7578125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 89 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.74it/s]
+Cycle 89 / 100: Best score 6281.753242 [predicted - 95754.6015625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339541440.0
+Best solution predicted score: 95707.6640625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 90 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.83it/s]
+Cycle 90 / 100: Best score 6281.753242 [predicted - 95707.6640625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339558848.0
+Best solution predicted score: 95651.078125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 91 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.07it/s]
+Cycle 91 / 100: Best score 6218.726158 [predicted - 95645.8515625]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339519328.0
+Best solution predicted score: 95556.5078125
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 92 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.61it/s]
+Cycle 92 / 100: Best score 6218.726158 [predicted - 95556.5078125]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339441536.0
+Best solution predicted score: 95519.5234375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 93 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.81it/s]
+Cycle 93 / 100: Best score 6218.726158 [predicted - 95519.5234375]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339404096.0
+Best solution predicted score: 95455.1640625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 94 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.59it/s]
+Cycle 94 / 100: Best score 6218.726158 [predicted - 95455.1640625]
+Restoring model weights from the end of the best epoch: 2.
+Epoch 12: early stopping
+Random solution predicted score: 339520320.0
+Best solution predicted score: 95383.421875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 95 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.50it/s]
+Cycle 95 / 100: Best score 6218.726158 [predicted - 95383.421875]
+Restoring model weights from the end of the best epoch: 3.
+Epoch 13: early stopping
+Random solution predicted score: 339324544.0
+Best solution predicted score: 95249.671875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 96 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.57it/s]
+Cycle 96 / 100: Best score 6221.397273 [predicted - 95249.671875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339315168.0
+Best solution predicted score: 95194.2265625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 97 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.42it/s]
+Cycle 97 / 100: Best score 6221.397273 [predicted - 95194.2265625]
+Restoring model weights from the end of the best epoch: 5.
+Epoch 15: early stopping
+Random solution predicted score: 339232608.0
+Best solution predicted score: 95021.8515625
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 98 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.77it/s]
+Cycle 98 / 100: Best score 6231.949335 [predicted - 95021.8515625]
+Restoring model weights from the end of the best epoch: 13.
+Epoch 23: early stopping
+Random solution predicted score: 339465056.0
+Best solution predicted score: 94608.296875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 99 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 14.07it/s]
+Cycle 99 / 100: Best score 6231.949335 [predicted - 94608.296875]
+Restoring model weights from the end of the best epoch: 4.
+Epoch 14: early stopping
+Random solution predicted score: 339656256.0
+Best solution predicted score: 94503.1875
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Cycle 100 / 100: Generating optimized solutions
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 50/50 [00:03<00:00, 13.72it/s]
+Cycle 100 / 100: Best score 6230.563822 [predicted - 94503.171875]
+Restoring model weights from the end of the best epoch: 1.
+Epoch 11: early stopping
+Random solution predicted score: 339606592.0
+Best solution predicted score: 94454.34375
+Best initial score: 182010936.962755
+Best score found: 5790.922481
+Best score optimization percentage: 3.181634344415797e-05
+Total rosenbrock function calls: 200
+Total solutions created: 6000200
+
+// TEST
+(env) D:\Development\Git\ga-surrogate-rosenbrock\src>tests.py
+2022-06-26 23:07:49.158633: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2022-06-26 23:07:49.158860: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-06-26 23:07:50.998510: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-06-26 23:07:50.998715: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-06-26 23:07:51.001519: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-ROF5BIA
+2022-06-26 23:07:51.001722: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-ROF5BIA
+2022-06-26 23:07:51.002110: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Monte Carlo testing with random generated networks on 10000 iterations
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10000/10000 [00:00<00:00, 34006.00it/s] 
+Difference between surrogate predicted score and actual score median is 0.81 with standard deviation 0.25
